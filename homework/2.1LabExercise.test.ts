@@ -19,7 +19,7 @@ describe("Testing the calculator", () => {
         expect(calculator.divide(calculator.add(2, 2), 4)).toBe(1);
       });
       test("(28/4)*(6/2)*(30-27+(3-4)) == 42", () => {
-        expect().toBeTruthy(42);
+        expect(calculator).toBeTruthy(42);
       });
     });
   });
