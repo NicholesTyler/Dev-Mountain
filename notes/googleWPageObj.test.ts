@@ -28,6 +28,10 @@ class employeePO {
     async sendKeys(elementBy: By, keys) {
         await this.driver.wait(until.elementLocated(elementBy))
         return this.driver.findElement(elementBy).sendKeys(keys)
+    }
+    async getText(elementBy) {
+        await this.driver.wait(until.elementLocated(elementBy))
+        return this.driver.findElement(elementBy).getText()
     } 
 }
 const emPage = new employeePO(driver)
@@ -49,5 +53,8 @@ describe("Practicing PageObjects", () => {
         await emPage.sendKeys(emPage.nameField, "Bob the Builder")
         await emPage.click(emPage.saveBtn)
         await driver.sleep(1000);
+        await emPage.getText(emPage.nameField)
+       let results = emPage.getText(emPage.nameField)
+       expect(results).toContain("Bob the Builder") 
     })
 })
